@@ -2,13 +2,11 @@ import { Scalar } from "@scalar/hono-api-reference";
 
 import type { AppOpenAPI } from "~/api/lib/types.ts";
 
-import packageJSON from "../../../package.json" with { type: "json" };
-
 export default function configureOpenAPI(app: AppOpenAPI) {
   app.doc("/doc", {
     openapi: "3.0.0",
     info: {
-      version: packageJSON.version,
+      version: "1.0.0",
       title: "Tasks API",
     },
   });
@@ -16,7 +14,7 @@ export default function configureOpenAPI(app: AppOpenAPI) {
   app.get(
     "/docs",
     Scalar({
-      pageTitle: `${packageJSON.name} API Documentation`,
+      pageTitle: "API Documentation",
       theme: "deepSpace",
       layout: "classic",
       defaultHttpClient: { targetKey: "js", clientKey: "fetch" },

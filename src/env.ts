@@ -15,7 +15,7 @@ const EnvSchema = z.object({
     "silent",
   ]).default("info"),
   DATABASE_URL: z.url(),
-  DATABASE_AUTH_TOKEN: z.string().optional(),
+  DATABASE_AUTH_TOKEN: z.string(),
   BETTER_AUTH_SECRET: z.string(),
   BETTER_AUTH_URL: z.url(),
   GOOGLE_CLIENT_ID: z.string(),

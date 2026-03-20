@@ -1,4 +1,4 @@
-import LoaderCircle from "lucide-solid/icons/loader-circle";
+import { LoaderCircle } from "lucide-solid";
 import { type Component, type ComponentProps, splitProps } from "solid-js";
 
 import { cn } from "~/client/lib/utils.ts";

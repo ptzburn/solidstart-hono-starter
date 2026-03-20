@@ -5,7 +5,7 @@ import * as DialogPrimitive from "@kobalte/core/dialog";
 import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 
 import { cn } from "~/client/lib/utils.ts";
-import XIcon from "lucide-solid/icons/x";
+import { XIcon } from "lucide-solid";
 
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;

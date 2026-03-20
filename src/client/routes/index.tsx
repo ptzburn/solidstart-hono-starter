@@ -47,10 +47,8 @@ export default function Main() {
   const createSubmission = useSubmission(createTaskAction);
 
   const updateTask = useAction(updateTaskAction);
-  const updateSubmission = useSubmission(updateTaskAction);
 
   const deleteTask = useAction(deleteTaskAction);
-  const deleteSubmission = useSubmission(deleteTaskAction);
 
   const form = createForm(() => ({
     defaultValues: {
