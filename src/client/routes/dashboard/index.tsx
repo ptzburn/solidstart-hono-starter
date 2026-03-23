@@ -1,4 +1,4 @@
-import { For, Show, Suspense, createSignal } from "solid-js";
+import { createSignal, For, Show, Suspense } from "solid-js";
 import { createForm } from "@tanstack/solid-form";
 import {
   createAsync,
@@ -226,19 +226,16 @@ export default function Main() {
       <DeletionDialog
         isOpen={() => deletingTaskId() !== null}
         setIsOpen={(value) => {
-          const open =
-            typeof value === "function"
-              ? value(deletingTaskId() !== null)
-              : value;
+          const open = typeof value === "function"
+            ? value(deletingTaskId() !== null)
+            : value;
           if (!open) setDeletingTaskId(null);
         }}
         isPending={deleteSubmission.pending}
         title="Delete task?"
-        description={
-          deletingTask()
-            ? `"${deletingTask()!.name}" will be removed. This can't be undone.`
-            : undefined
-        }
+        description={deletingTask()
+          ? `"${deletingTask()!.name}" will be removed. This can't be undone.`
+          : undefined}
         onDelete={async () => {
           const id = deletingTaskId();
           if (id == null) return;
