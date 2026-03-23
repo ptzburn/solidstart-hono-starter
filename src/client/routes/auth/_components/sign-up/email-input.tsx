@@ -9,7 +9,7 @@ import z from "zod";
 import type { Step } from "~/client/routes/auth/sign-up/index.tsx";
 import { Separator } from "~/client/components/ui/separator.tsx";
 import Fa7BrandsGoogle from "~icons/fa7-brands/google";
-import Fa7BrandsMicrosoft from "~icons/fa7-brands/microsoft";
+import Fa7BrandsGitHub from "~icons/fa7-brands/github";
 
 type EmailInputProps = {
   setStep: Setter<Step>;
@@ -40,7 +40,7 @@ export function EmailInput(props: EmailInputProps) {
 
     await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/chat?signup=true",
+      callbackURL: "/dashboard?signup=true",
       requestSignUp: true,
       fetchOptions: {
         onError: (error) => {
@@ -54,12 +54,12 @@ export function EmailInput(props: EmailInputProps) {
     setIsLoading(false);
   }
 
-  async function handleMicrosoftSignUp() {
+  async function handleGitHubSignUp() {
     setIsLoading(true);
 
     await authClient.signIn.social({
-      provider: "microsoft",
-      callbackURL: "/chat?signup=true",
+      provider: "github",
+      callbackURL: "/dashboard",
       errorCallbackURL: "/auth/error",
       requestSignUp: true,
       fetchOptions: {
@@ -84,7 +84,7 @@ export function EmailInput(props: EmailInputProps) {
           variant="outline"
           class="w-full cursor-pointer relative"
           type="button"
-          onClick={handleMicrosoftSignUp}
+          onClick={handleGitHubSignUp}
           disabled={isLoading()}
         >
           <Switch>
@@ -92,10 +92,10 @@ export function EmailInput(props: EmailInputProps) {
               <Spinner />
             </Match>
             <Match when={!isLoading()}>
-              <Fa7BrandsMicrosoft class="size-5" />
+              <Fa7BrandsGitHub class="size-5" />
             </Match>
           </Switch>
-          Sign up with Microsoft
+          Sign up with GitHub
         </Button>
         <Button
           variant="outline"

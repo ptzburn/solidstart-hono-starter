@@ -17,6 +17,7 @@ export default defineConfig({
     tailwindcss(),
     solidStart({
       routeDir: "./client/routes",
+      middleware: "./src/client/lib/middleware.ts",
     }),
     nitro({
       preset: "deno_server",

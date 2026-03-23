@@ -25,7 +25,7 @@ const items = (
     title: "Dashboard",
     url: "/dashboard",
     icon: House,
-    isActive: pathname.startsWith("/chat"),
+    isActive: pathname.startsWith("/dashboard"),
   },
 ];
 

@@ -68,7 +68,7 @@ function TotpForm(props: {
             toast.error(ctx.error.message || "An error occurred");
           },
           onSuccess: () => {
-            globalThis.location.href = "/chat";
+            globalThis.location.href = "/dashboard";
           },
         },
       });
@@ -149,7 +149,7 @@ function BackupCodeForm(props: {
             toast.error(ctx.error.message || "An error occurred");
           },
           onSuccess: () => {
-            globalThis.location.href = "/chat";
+            globalThis.location.href = "/dashboard";
           },
         },
       });

@@ -9,7 +9,7 @@ import { A, useNavigate } from "@solidjs/router";
 import { Separator } from "~/client/components/ui/separator.tsx";
 import FingerprintPattern from "~icons/lucide/fingerprint-pattern";
 import Fa7BrandsGoogle from "~icons/fa7-brands/google";
-import Fa7BrandsMicrosoft from "~icons/fa7-brands/microsoft";
+import Fa7BrandsGitHub from "~icons/fa7-brands/github";
 
 function LastUsedBadge() {
   return (
@@ -32,6 +32,7 @@ function SignInPage() {
     await authClient.signIn.social({
       provider: "google",
       callbackURL: "/dashboard",
+      errorCallbackURL: "/auth/error",
       fetchOptions: {
         onError: (error) => {
           navigate("/auth/sign-in");
@@ -44,10 +45,10 @@ function SignInPage() {
     setIsLoading(false);
   }
 
-  async function handleMicrosoftSignIn() {
+  async function handleGitHubSignIn() {
     setIsLoading(true);
     await authClient.signIn.social({
-      provider: "microsoft",
+      provider: "github",
       callbackURL: "/dashboard",
       errorCallbackURL: "/auth/error",
       fetchOptions: {
@@ -98,16 +99,16 @@ function SignInPage() {
               variant="outline"
               class="w-full relative"
               type="button"
-              onClick={handleMicrosoftSignIn}
+              onClick={handleGitHubSignIn}
               disabled={isLoading()}
             >
               <Show
                 when={isLoading()}
-                fallback={<Fa7BrandsMicrosoft class="size-5" />}
+                fallback={<Fa7BrandsGitHub class="size-5" />}
               >
                 <Spinner />
               </Show>
-              Sign in with Microsoft
+              Sign in with GitHub
               <Show when={lastLoginMethod() === "microsoft"}>
                 <LastUsedBadge />
               </Show>

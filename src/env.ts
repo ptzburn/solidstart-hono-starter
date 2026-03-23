@@ -20,6 +20,8 @@ const EnvSchema = z.object({
   BETTER_AUTH_URL: z.url(),
   GOOGLE_CLIENT_ID: z.string(),
   GOOGLE_CLIENT_SECRET: z.string(),
+  GITHUB_CLIENT_ID: z.string(),
+  GITHUB_CLIENT_SECRET: z.string(),
   VITE_TURNSTILE_SITE_KEY: z.string(),
   VITE_TURNSTILE_SECRET_KEY: z.string(),
   VITE_HOST_URL: z.url(),

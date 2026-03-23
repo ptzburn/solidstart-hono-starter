@@ -1,4 +1,4 @@
-import { For, Show, Suspense } from "solid-js";
+import { For, Show, Suspense, createSignal } from "solid-js";
 import { createForm } from "@tanstack/solid-form";
 import {
   createAsync,
@@ -22,19 +22,10 @@ import {
   CardTitle,
 } from "~/client/components/ui/card.tsx";
 import { Checkbox } from "~/client/components/ui/checkbox.tsx";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "~/client/components/ui/alert-dialog.tsx";
+import { DeletionDialog } from "~/client/components/deletion-dialog.tsx";
 import { cn } from "~/client/lib/utils.ts";
 import { toast } from "solid-sonner";
+import Trash from "~icons/lucide/trash";
 
 type NewTaskForm = {
   name: string;
@@ -45,10 +36,23 @@ export default function Main() {
 
   const createTask = useAction(createTaskAction);
   const createSubmission = useSubmission(createTaskAction);
+  const deleteSubmission = useSubmission(deleteTaskAction);
 
   const updateTask = useAction(updateTaskAction);
 
   const deleteTask = useAction(deleteTaskAction);
+
+  const [deletingTaskId, setDeletingTaskId] = createSignal<number | null>(
+    null,
+  );
+
+  const deletingTask = () => {
+    const id = deletingTaskId();
+    if (id == null) return undefined;
+    const list = tasks();
+    if (!list) return undefined;
+    return list.find((t) => t.id === id);
+  };
 
   const form = createForm(() => ({
     defaultValues: {
@@ -80,14 +84,16 @@ export default function Main() {
     }
   }
 
-  async function onDeleteTask(id: number) {
+  async function onDeleteTask(id: number): Promise<boolean> {
     try {
       await deleteTask(String(id));
       revalidate(getTasksQuery.key);
+      return true;
     } catch (error) {
       toast.error(
         Error.isError(error) ? error.message : "Failed to delete task",
       );
+      return false;
     }
   }
 
@@ -198,67 +204,14 @@ export default function Main() {
                           >
                             {task.name}
                           </span>
-                          <AlertDialog>
-                            <AlertDialogTrigger
-                              as={Button}
-                              variant="ghost"
-                              size="icon-sm"
-                              aria-label="Delete"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="size-4"
-                              >
-                                <path d="M3 6h18" />
-                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                <line
-                                  x1="10"
-                                  x2="10"
-                                  y1="11"
-                                  y2="17"
-                                />
-                                <line
-                                  x1="14"
-                                  x2="14"
-                                  y1="11"
-                                  y2="17"
-                                />
-                              </svg>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle>
-                                  Delete task?
-                                </AlertDialogTitle>
-                                <AlertDialogDescription>
-                                  "{task
-                                    .name}" will be removed. This can't be
-                                  undone.
-                                </AlertDialogDescription>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel>
-                                  Cancel
-                                </AlertDialogCancel>
-                                <AlertDialogAction
-                                  class="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                                  onClick={() =>
-                                    onDeleteTask(
-                                      task.id,
-                                    )}
-                                >
-                                  Delete
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          </AlertDialog>
+                          <Button
+                            variant="ghost"
+                            size="icon-sm"
+                            aria-label="Delete"
+                            onClick={() => setDeletingTaskId(task.id)}
+                          >
+                            <Trash class="size-4" />
+                          </Button>
                         </li>
                       )}
                     </For>
@@ -269,6 +222,30 @@ export default function Main() {
           </Suspense>
         </CardContent>
       </Card>
+
+      <DeletionDialog
+        isOpen={() => deletingTaskId() !== null}
+        setIsOpen={(value) => {
+          const open =
+            typeof value === "function"
+              ? value(deletingTaskId() !== null)
+              : value;
+          if (!open) setDeletingTaskId(null);
+        }}
+        isPending={deleteSubmission.pending}
+        title="Delete task?"
+        description={
+          deletingTask()
+            ? `"${deletingTask()!.name}" will be removed. This can't be undone.`
+            : undefined
+        }
+        onDelete={async () => {
+          const id = deletingTaskId();
+          if (id == null) return;
+          const ok = await onDeleteTask(id);
+          if (ok) setDeletingTaskId(null);
+        }}
+      />
     </div>
   );
 }

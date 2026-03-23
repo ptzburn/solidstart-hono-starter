@@ -38,7 +38,7 @@ export default function SignInForm(props: SignInFormProps) {
       await authClient.signIn.email({
         email,
         password,
-        callbackURL: "/chat",
+        callbackURL: "/dashboard",
         fetchOptions: {
           headers: {
             "x-captcha-response": turnstileToken() ?? "",

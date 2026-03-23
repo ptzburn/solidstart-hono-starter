@@ -104,6 +104,10 @@ export const auth = betterAuth({
     sendOnSignUp: true,
   },
   socialProviders: {
+    github: {
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRET,
+    },
     google: {
       prompt: "select_account",
       clientId: env.GOOGLE_CLIENT_ID,

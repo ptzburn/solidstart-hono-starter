@@ -37,7 +37,7 @@ export function NavUser(props: NavUserProps) {
           toast.error(error.error.message);
         },
         onSuccess: () => {
-          globalThis.location.href = "/chat";
+          globalThis.location.href = "/dashboard";
         },
       },
     });
