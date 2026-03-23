@@ -1,4 +1,4 @@
-import type { ZodSchema } from "~/api/lib/types.ts";
+import type { ZodSchema } from "~/api/types/hono.ts";
 
 const jsonContent = <
   T extends ZodSchema,

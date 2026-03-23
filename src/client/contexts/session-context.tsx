@@ -1,0 +1,34 @@
+import { createContext, type JSX, useContext } from "solid-js";
+
+import type { SelectSession, SelectUser } from "~/shared/types/auth.ts";
+
+export type SessionContextValue = {
+  user: SelectUser;
+  session: SelectSession;
+};
+
+const SessionContext = createContext<SessionContextValue>();
+
+export function SessionProvider(props: {
+  user: SelectUser;
+  session: SelectSession;
+  children: JSX.Element;
+}) {
+  return (
+    <SessionContext.Provider
+      value={{ user: props.user, session: props.session }}
+    >
+      {props.children}
+    </SessionContext.Provider>
+  );
+}
+
+export function useSession() {
+  const context = useContext(SessionContext);
+
+  if (!context) {
+    throw new Error("useSession must be used within SessionProvider");
+  }
+
+  return context;
+}

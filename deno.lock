@@ -9,14 +9,17 @@
     "npm:@corvu/otp-field@~0.1.4": "0.1.4_solid-js@1.9.11",
     "npm:@deno/vite-plugin@^1.0.6": "1.0.6_vite@7.3.1",
     "npm:@hono/zod-openapi@^1.2.2": "1.2.2_hono@4.12.8_zod@4.3.6",
+    "npm:@iconify-json/fa7-brands@^1.2.2": "1.2.2",
+    "npm:@iconify-json/lucide@^1.2.98": "1.2.98",
     "npm:@kobalte/core@~0.13.11": "0.13.11_solid-js@1.9.11",
     "npm:@kobalte/tailwindcss@0.9": "0.9.0_tailwindcss@4.2.2",
     "npm:@libsql/client@0.17": "0.17.2",
+    "npm:@nerimity/solid-turnstile@^1.1.0": "1.1.0_solid-js@1.9.11",
     "npm:@scalar/hono-api-reference@~0.10.3": "0.10.4_hono@4.12.8",
     "npm:@seven.io/client@^5.5.1": "5.5.2",
     "npm:@solidjs/meta@~0.29.4": "0.29.4_solid-js@1.9.11",
     "npm:@solidjs/router@~0.15.4": "0.15.4_solid-js@1.9.11",
-    "npm:@solidjs/start@2.0.0-alpha.2": "2.0.0-alpha.2_vite@7.3.1",
+    "npm:@solidjs/start@^2.0.0-alpha.2": "2.0.0-alpha.2_vite@7.3.1",
     "npm:@solidjs/vite-plugin-nitro-2@0.1": "0.1.0_vite@7.3.1_@azure+core-client@1.10.1_@libsql+client@0.17.2_@types+mssql@9.1.9__@azure+core-client@1.10.1_drizzle-orm@1.0.0-beta.9-e89174b__@libsql+client@0.17.2__@types+mssql@9.1.9___@azure+core-client@1.10.1__mssql@11.0.1___@azure+core-client@1.10.1__@azure+core-client@1.10.1_mssql@11.0.1__@azure+core-client@1.10.1",
     "npm:@tailwindcss/vite@^4.2.1": "4.2.2_vite@7.3.1",
     "npm:@tanstack/solid-form@^1.28.5": "1.28.5_solid-js@1.9.11",
@@ -25,16 +28,14 @@
     "npm:clsx@^2.1.1": "2.1.1",
     "npm:cmdk-solid@^1.1.2": "1.1.2_solid-js@1.9.11",
     "npm:concurrently@^9.2.1": "9.2.1",
-    "npm:drizzle-kit@^1.0.0-beta.17-67b1795": "1.0.0-beta.9-e89174b",
     "npm:drizzle-kit@^1.0.0-beta.18-7eb39f0": "1.0.0-beta.9-e89174b",
-    "npm:drizzle-orm@^1.0.0-beta.17-67b1795": "1.0.0-beta.9-e89174b_@libsql+client@0.17.2_@types+mssql@9.1.9__@azure+core-client@1.10.1_mssql@11.0.1__@azure+core-client@1.10.1_@azure+core-client@1.10.1",
+    "npm:drizzle-orm@^1.0.0-beta.18-7eb39f0": "1.0.0-beta.9-e89174b_@libsql+client@0.17.2_@types+mssql@9.1.9__@azure+core-client@1.10.1_mssql@11.0.1__@azure+core-client@1.10.1_@azure+core-client@1.10.1",
     "npm:drizzle-zod@~0.8.3": "0.8.3_drizzle-orm@1.0.0-beta.9-e89174b__@libsql+client@0.17.2__@types+mssql@9.1.9___@azure+core-client@1.10.1__mssql@11.0.1___@azure+core-client@1.10.1__@azure+core-client@1.10.1_zod@4.3.6_@azure+core-client@1.10.1_@libsql+client@0.17.2_@types+mssql@9.1.9__@azure+core-client@1.10.1_mssql@11.0.1__@azure+core-client@1.10.1",
     "npm:embla-carousel-solid@^8.6.0": "8.6.0_solid-js@1.9.11",
     "npm:hono-pino@~0.10.3": "0.10.3_hono@4.12.8_pino@10.3.1",
     "npm:hono-rate-limiter@~0.5.3": "0.5.3_hono@4.12.8",
     "npm:hono@^4.12.8": "4.12.8",
     "npm:lefthook@^2.1.4": "2.1.4",
-    "npm:lucide-solid@0.577": "0.577.0_solid-js@1.9.11",
     "npm:pino-pretty@^13.1.3": "13.1.3",
     "npm:pino@^10.3.1": "10.3.1",
     "npm:resend@^6.9.3": "6.9.4",
@@ -44,10 +45,18 @@
     "npm:tailwindcss-animate@^1.0.7": "1.0.7_tailwindcss@4.2.2",
     "npm:tailwindcss@^4.2.1": "4.2.2",
     "npm:tw-animate-css@^1.4.0": "1.4.0",
+    "npm:unplugin-icons@^23.0.1": "23.0.1",
     "npm:vite@^7.3.1": "7.3.1",
     "npm:zod@^4.3.6": "4.3.6"
   },
   "npm": {
+    "@antfu/install-pkg@1.1.0": {
+      "integrity": "sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==",
+      "dependencies": [
+        "package-manager-detector",
+        "tinyexec"
+      ]
+    },
     "@ark-ui/solid@5.34.1_solid-js@1.9.11": {
       "integrity": "sha512-DMTAVtmibwcKC9B3iMhQfXfTvCsQYs43qTX2VZPArVsjQGNZlDXK3+oPmaw1FPoVBD5csi1bjGNkwruhbh1gAA==",
       "dependencies": [
@@ -950,6 +959,29 @@
         "zod"
       ]
     },
+    "@iconify-json/fa7-brands@1.2.2": {
+      "integrity": "sha512-y6ZBdlLS4v1suB6fuMI5kqSO0B91Y19nlqTz7VfBYu9lI948tbRh+6lU2kNMOlo8I4qgSWX0SEdN7jkhOzI5gA==",
+      "dependencies": [
+        "@iconify/types"
+      ]
+    },
+    "@iconify-json/lucide@1.2.98": {
+      "integrity": "sha512-Lx2464W8Tty/QEnZ2UPb73nPdML/HpGCj0J0w37jP3/jx3l4fniZBjDxe1TgHiIL5XW9QO3vlx53ZQZ5JsNpzQ==",
+      "dependencies": [
+        "@iconify/types"
+      ]
+    },
+    "@iconify/types@2.0.0": {
+      "integrity": "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="
+    },
+    "@iconify/utils@3.1.0": {
+      "integrity": "sha512-Zlzem1ZXhI1iHeeERabLNzBHdOa4VhQbqAcOQaMKuTuyZCpwKbC2R4Dd0Zo3g9EAc+Y4fiarO8HIHRAth7+skw==",
+      "dependencies": [
+        "@antfu/install-pkg",
+        "@iconify/types",
+        "mlly"
+      ]
+    },
     "@internationalized/date@3.11.0": {
       "integrity": "sha512-BOx5huLAWhicM9/ZFs84CzP+V3gBW6vlpM02yzsdYC7TGlZJX1OJiEEHcSayF00Z+3jLlm4w79amvSt6RqKN3Q==",
       "dependencies": [
@@ -1170,6 +1202,12 @@
     },
     "@neon-rs/load@0.0.4": {
       "integrity": "sha512-kTPhdZyTQxB+2wpiRcFWrDcejc4JI6tkPuS7UZCG4l6Zvc5kU/gGQ/ozvHTh1XR5tS+UlfAfGuPajjzQjCiHCw=="
+    },
+    "@nerimity/solid-turnstile@1.1.0_solid-js@1.9.11": {
+      "integrity": "sha512-YetH2H65ZajytiecDIYMwyv/RgA2Jtzv2M+thuN81yUjzbQJH3CvEBdxVZ7/6wIAMuucuPhY8s23BTM7wpV85Q==",
+      "dependencies": [
+        "solid-js"
+      ]
     },
     "@noble/ciphers@2.1.1": {
       "integrity": "sha512-bysYuiVfhxNJuldNXlFEitTVdNnYUc+XNJZd7Qm2a5j1vZHgY+fazadNFWFaMK/2vye0JVlxV3gHmC0WDfAOQw=="
@@ -4442,12 +4480,6 @@
         "yallist@3.1.1"
       ]
     },
-    "lucide-solid@0.577.0_solid-js@1.9.11": {
-      "integrity": "sha512-r/rsauBlyNjFlUhXCkD544tOH1GgcFFupw9oP2zZT4BiFkHoO3MTr12QfKBrS5zCRIhktc/qY2tRr925hFlNuQ==",
-      "dependencies": [
-        "solid-js"
-      ]
-    },
     "magic-string@0.30.21": {
       "integrity": "sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==",
       "dependencies": [
@@ -4759,6 +4791,9 @@
       ],
       "bin": true
     },
+    "obug@2.1.1": {
+      "integrity": "sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ=="
+    },
     "ofetch@1.5.1": {
       "integrity": "sha512-2W4oUZlVaqAPAil6FUg/difl6YhqhUR7x2eZY4bQCko22UXg3hptq9KLQdqFClV+Wu85UX7hNtdGTngi/1BxcA==",
       "dependencies": [
@@ -4824,6 +4859,9 @@
     },
     "package-json-from-dist@1.0.1": {
       "integrity": "sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw=="
+    },
+    "package-manager-detector@1.3.0": {
+      "integrity": "sha512-ZsEbbZORsyHuO00lY1kV3/t72yp6Ysay6Pd17ZAlNGuGwmWDLCJxFpRs0IzfXfj1o4icJOkUEioexFHzyPurSQ=="
     },
     "parse5@7.3.0": {
       "integrity": "sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==",
@@ -5767,6 +5805,16 @@
         "unist-util-visit-parents"
       ]
     },
+    "unplugin-icons@23.0.1": {
+      "integrity": "sha512-rv0XEJepajKzDLvRUWASM8K+8+/CCfZn2jtogXqg6RIp7kpatRc/aFrVJn8ANQA09e++lPEEv9yX8cC9enc+QQ==",
+      "dependencies": [
+        "@antfu/install-pkg",
+        "@iconify/utils",
+        "local-pkg",
+        "obug",
+        "unplugin"
+      ]
+    },
     "unplugin-utils@0.3.1": {
       "integrity": "sha512-5lWVjgi6vuHhJ526bI4nlCOmkCIF3nnfXkCMDeMJrtdvxTs6ZFCM8oNufGTsDbKv/tJ/xj8RpvXjRuPBZJuJog==",
       "dependencies": [
@@ -6029,53 +6077,54 @@
     }
   },
   "workspace": {
-    "packageJson": {
-      "dependencies": [
-        "npm:@ark-ui/solid@^5.34.1",
-        "npm:@better-auth/drizzle-adapter@^1.5.5",
-        "npm:@better-auth/passkey@^1.5.5",
-        "npm:@corvu/calendar@~0.1.2",
-        "npm:@corvu/drawer@~0.2.4",
-        "npm:@corvu/otp-field@~0.1.4",
-        "npm:@deno/vite-plugin@^1.0.6",
-        "npm:@hono/zod-openapi@^1.2.2",
-        "npm:@kobalte/core@~0.13.11",
-        "npm:@kobalte/tailwindcss@0.9",
-        "npm:@libsql/client@0.17",
-        "npm:@scalar/hono-api-reference@~0.10.3",
-        "npm:@seven.io/client@^5.5.1",
-        "npm:@solidjs/meta@~0.29.4",
-        "npm:@solidjs/router@~0.15.4",
-        "npm:@solidjs/start@2.0.0-alpha.2",
-        "npm:@solidjs/vite-plugin-nitro-2@0.1",
-        "npm:@tailwindcss/vite@^4.2.1",
-        "npm:@tanstack/solid-form@^1.28.5",
-        "npm:better-auth@^1.5.5",
-        "npm:class-variance-authority@~0.7.1",
-        "npm:clsx@^2.1.1",
-        "npm:cmdk-solid@^1.1.2",
-        "npm:concurrently@^9.2.1",
-        "npm:drizzle-kit@^1.0.0-beta.17-67b1795",
-        "npm:drizzle-orm@^1.0.0-beta.17-67b1795",
-        "npm:drizzle-zod@~0.8.3",
-        "npm:embla-carousel-solid@^8.6.0",
-        "npm:hono-pino@~0.10.3",
-        "npm:hono-rate-limiter@~0.5.3",
-        "npm:hono@^4.12.8",
-        "npm:lefthook@^2.1.4",
-        "npm:lucide-solid@0.577",
-        "npm:pino-pretty@^13.1.3",
-        "npm:pino@^10.3.1",
-        "npm:resend@^6.9.3",
-        "npm:solid-js@^1.9.11",
-        "npm:solid-sonner@~0.3.1",
-        "npm:tailwind-merge@^3.5.0",
-        "npm:tailwindcss-animate@^1.0.7",
-        "npm:tailwindcss@^4.2.1",
-        "npm:tw-animate-css@^1.4.0",
-        "npm:vite@^7.3.1",
-        "npm:zod@^4.3.6"
-      ]
-    }
+    "dependencies": [
+      "npm:@ark-ui/solid@^5.34.1",
+      "npm:@better-auth/drizzle-adapter@^1.5.5",
+      "npm:@better-auth/passkey@^1.5.5",
+      "npm:@corvu/calendar@~0.1.2",
+      "npm:@corvu/drawer@~0.2.4",
+      "npm:@corvu/otp-field@~0.1.4",
+      "npm:@deno/vite-plugin@^1.0.6",
+      "npm:@hono/zod-openapi@^1.2.2",
+      "npm:@iconify-json/fa7-brands@^1.2.2",
+      "npm:@iconify-json/lucide@^1.2.98",
+      "npm:@kobalte/core@~0.13.11",
+      "npm:@kobalte/tailwindcss@0.9",
+      "npm:@libsql/client@0.17",
+      "npm:@nerimity/solid-turnstile@^1.1.0",
+      "npm:@scalar/hono-api-reference@~0.10.3",
+      "npm:@seven.io/client@^5.5.1",
+      "npm:@solidjs/meta@~0.29.4",
+      "npm:@solidjs/router@~0.15.4",
+      "npm:@solidjs/start@^2.0.0-alpha.2",
+      "npm:@solidjs/vite-plugin-nitro-2@0.1",
+      "npm:@tailwindcss/vite@^4.2.1",
+      "npm:@tanstack/solid-form@^1.28.5",
+      "npm:better-auth@^1.5.5",
+      "npm:class-variance-authority@~0.7.1",
+      "npm:clsx@^2.1.1",
+      "npm:cmdk-solid@^1.1.2",
+      "npm:concurrently@^9.2.1",
+      "npm:drizzle-kit@^1.0.0-beta.18-7eb39f0",
+      "npm:drizzle-orm@^1.0.0-beta.18-7eb39f0",
+      "npm:drizzle-zod@~0.8.3",
+      "npm:embla-carousel-solid@^8.6.0",
+      "npm:hono-pino@~0.10.3",
+      "npm:hono-rate-limiter@~0.5.3",
+      "npm:hono@^4.12.8",
+      "npm:lefthook@^2.1.4",
+      "npm:pino-pretty@^13.1.3",
+      "npm:pino@^10.3.1",
+      "npm:resend@^6.9.3",
+      "npm:solid-js@^1.9.11",
+      "npm:solid-sonner@~0.3.1",
+      "npm:tailwind-merge@^3.5.0",
+      "npm:tailwindcss-animate@^1.0.7",
+      "npm:tailwindcss@^4.2.1",
+      "npm:tw-animate-css@^1.4.0",
+      "npm:unplugin-icons@^23.0.1",
+      "npm:vite@^7.3.1",
+      "npm:zod@^4.3.6"
+    ]
   }
 }

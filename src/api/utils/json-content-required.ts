@@ -1,4 +1,4 @@
-import type { ZodSchema } from "~/api/lib/types.ts";
+import type { ZodSchema } from "~/api/types/hono.ts";
 
 import jsonContent from "~/api/utils/json-content.ts";
 

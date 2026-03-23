@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import * as httpStatus from "~/shared/http-status.ts";
 
-import type { AppRouteHandler } from "~/api/lib/types.ts";
+import type { AppRouteHandler } from "~/api/types/hono.ts";
 
 import db from "~/api/db/index.ts";
 import { tasks } from "~/api/db/schema/task.ts";

@@ -17,7 +17,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "~/client/components/ui/dialog.tsx";
-import { SearchIcon } from "lucide-solid";
+import SearchIcon from "~icons/lucide/search";
 
 const Command: Component<ParentProps<CommandPrimitive.CommandRootProps>> = (
   props,

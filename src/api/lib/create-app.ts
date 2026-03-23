@@ -5,7 +5,8 @@ import defaultHook from "~/api/utils/default-hook.ts";
 
 import { pinoLogger } from "~/api/middlewares/logger.middleware.ts";
 
-import type { AppBindings, AppOpenAPI } from "~/api/lib/types.ts";
+import type { AppBindings } from "~/api/types/hono.ts";
+import { auth } from "~/shared/auth.ts";
 
 export function createRouter() {
   return new OpenAPIHono<AppBindings>({
@@ -19,9 +20,14 @@ export default function createApp() {
   app.use(pinoLogger());
   app.notFound(notFound);
   app.onError(onError);
+  // deno-lint-ignore require-await
+  app.on(["POST", "GET"], "/api/auth/**", async (c) => {
+    if (c.req.path === "/api/auth/error") {
+      const error = c.req.query("error");
+      const redirectUrl = error ? `/auth/error?error=${error}` : "/auth/error";
+      return c.redirect(redirectUrl);
+    }
+    return auth.handler(c.req.raw);
+  });
   return app;
-}
-
-export function createTestApp<R extends AppOpenAPI>(router: R) {
-  return createApp().route("/", router);
 }

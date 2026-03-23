@@ -1,8 +1,8 @@
 import { Scalar } from "@scalar/hono-api-reference";
+import type { OpenAPIHono } from "@hono/zod-openapi";
+import type { AppBindings } from "~/api/types/hono.ts";
 
-import type { AppOpenAPI } from "~/api/lib/types.ts";
-
-export default function configureOpenAPI(app: AppOpenAPI) {
+export default function configureOpenAPI(app: OpenAPIHono<AppBindings>) {
   app.doc("/doc", {
     openapi: "3.0.0",
     info: {
