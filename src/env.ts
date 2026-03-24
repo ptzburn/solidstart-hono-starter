@@ -28,6 +28,12 @@ const EnvSchema = z.object({
   RESEND_API_KEY: z.string(),
   RESEND_EMAIL: z.email(),
   SEVEN_IO_API_KEY: z.string(),
+  S3_REGION: z.string(),
+  S3_ENDPOINT: z.url(),
+  S3_ACCESS_KEY: z.string(),
+  S3_ACCESS_SECRET: z.string(),
+  S3_BUCKET: z.string(),
+  VITE_S3_PUBLIC_URL: z.url(),
 });
 
 export type env = z.infer<typeof EnvSchema>;

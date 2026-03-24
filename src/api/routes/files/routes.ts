@@ -1,0 +1,78 @@
+import { createRoute, z } from "@hono/zod-openapi";
+
+import jsonContent from "~/api/utils/json-content.ts";
+import multipartContent from "~/api/utils/multipart-content.ts";
+
+import * as HttpStatus from "~/shared/http-status.ts";
+import authMiddleware from "~/api/middlewares/auth.middleware.ts";
+import ImageFileSchema from "~/api/utils/open-api-schemas/image-file.schema.ts";
+import unauthorizedSchema from "~/api/utils/open-api-schemas/unauthorized.schema.ts";
+import createErrorSchema from "~/api/utils/open-api-schemas/create-error.schema.ts";
+import serverErrorSchema from "~/api/utils/open-api-schemas/server-error.schema.ts";
+import forbiddenSchema from "~/api/utils/open-api-schemas/forbidden.schema.ts";
+
+const tags = ["Files"];
+
+export const uploadUserAvatar = createRoute({
+  summary: "uploads user avatar",
+  description: "Upload user avatar",
+  tags,
+  method: "post",
+  path: "/avatars",
+  middleware: [authMiddleware],
+  request: {
+    body: multipartContent(
+      ImageFileSchema,
+      "Image file to upload",
+    ),
+  },
+  responses: {
+    [HttpStatus.OK.CODE]: jsonContent(
+      z.object({
+        fileKey: z.string(),
+      }),
+      "Key of the uploaded file",
+    ),
+    [HttpStatus.UNAUTHORIZED.CODE]: jsonContent(
+      unauthorizedSchema,
+      "Unauthorized",
+    ),
+    [HttpStatus.UNPROCESSABLE_ENTITY.CODE]: jsonContent(
+      createErrorSchema(ImageFileSchema),
+      HttpStatus.UNPROCESSABLE_ENTITY.MESSAGE,
+    ),
+    [HttpStatus.INTERNAL_SERVER_ERROR.CODE]: jsonContent(
+      serverErrorSchema,
+      "Internal server error",
+    ),
+  },
+});
+
+export const removeUserAvatar = createRoute({
+  summary: "deletes user avatar",
+  description: "Delete the user avatar",
+  tags,
+  method: "delete",
+  path: "/avatars",
+  middleware: [authMiddleware],
+  responses: {
+    [HttpStatus.NO_CONTENT.CODE]: {
+      description: "Avatar deleted",
+    },
+    [HttpStatus.UNAUTHORIZED.CODE]: jsonContent(
+      unauthorizedSchema,
+      "Unauthorized",
+    ),
+    [HttpStatus.FORBIDDEN.CODE]: jsonContent(
+      forbiddenSchema,
+      "Forbidden",
+    ),
+    [HttpStatus.INTERNAL_SERVER_ERROR.CODE]: jsonContent(
+      serverErrorSchema,
+      "Internal server error",
+    ),
+  },
+});
+
+export type UploadUserAvatarRoute = typeof uploadUserAvatar;
+export type RemoveUserAvatarRoute = typeof removeUserAvatar;

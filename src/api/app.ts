@@ -1,6 +1,7 @@
 import configureOpenAPI from "~/api/lib/configure-open-api.ts";
 import createApp from "~/api/lib/create-app.ts";
 import tasks from "~/api/routes/tasks/index.ts";
+import files from "~/api/routes/files/index.ts";
 
 const app = createApp().basePath("/api");
 
@@ -8,6 +9,7 @@ configureOpenAPI(app);
 
 const routes = [
   tasks,
+  files,
 ] as const;
 
 routes.forEach((route) => {

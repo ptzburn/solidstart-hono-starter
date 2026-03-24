@@ -25,7 +25,7 @@ const items = (
     title: "Dashboard",
     url: "/dashboard",
     icon: House,
-    isActive: pathname.startsWith("/dashboard"),
+    isActive: pathname === "/dashboard",
   },
 ];
 
@@ -78,7 +78,7 @@ export function NavMain(props: NavMainProps) {
         <NavigationMenuItem>
           <NavigationMenuLink
             as={A}
-            href="/users"
+            href="/dashboard/users"
             onClick={props.onNavigate}
             class={cn(
               "hover:cursor-pointer inline-flex items-center gap-2",

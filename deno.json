@@ -3,7 +3,7 @@
   "tasks": {
     "dev:app": "deno run --allow-env --allow-sys --allow-ffi --env-file --allow-net --allow-read --allow-write --allow-run vite --port 3020",
     "build": "deno run --allow-env --allow-read --allow-sys --allow-run --allow-ffi --env-file=.env.prod --allow-write vite build",
-    "dev": "concurrently \"deno task db:start\" \"deno task dev:app\"",
+    "dev": "concurrently \"deno task db:start\" \"deno task dev:app\" \"docker compose up\"",
     "start": "deno run --allow-net --allow-read --allow-write --allow-ffi --allow-env --env-file=.env.prod --allow-sys ./.output/server/index.mjs",
     "db:start": "turso dev --db-file local.db",
     "db:generate": "deno -A --env-file npm:drizzle-kit@^1.0.0-beta.18-7eb39f0 generate",
@@ -22,8 +22,12 @@
     }
   },
   "imports": {
+    "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@^3.1015.0",
     "@iconify-json/fa7-brands": "npm:@iconify-json/fa7-brands@^1.2.2",
     "@iconify-json/lucide": "npm:@iconify-json/lucide@^1.2.98",
+    "@solid-primitives/upload": "npm:@solid-primitives/upload@^0.1.4",
+    "date-fns": "npm:date-fns@^4.1.0",
+    "solid-qr-code": "npm:solid-qr-code@^0.1.11",
     "unplugin-icons": "npm:unplugin-icons@^23.0.1",
     "~/": "./src/",
     "@nerimity/solid-turnstile": "npm:@nerimity/solid-turnstile@^1.1.0",

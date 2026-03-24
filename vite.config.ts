@@ -10,6 +10,11 @@ import "./src/env.ts";
 export default defineConfig({
   root: import.meta.dirname,
   cacheDir: "node_modules/.vite",
+  server: {
+    watch: {
+      ignored: ["**/local.db*", "**/docker-data/**"],
+    },
+  },
   build: {
     target: "esnext",
   },

@@ -88,7 +88,7 @@ export function NavUser(props: NavUserProps) {
       <DropdownMenuTrigger class="hover:cursor-pointer flex flex-row gap-2">
         <Avatar class="size-6 rounded-sm">
           <AvatarImage
-            src={getFileUrl(session.user.image) ?? ""}
+            src={getFileUrl(session.user.image)}
             alt={session.user.name}
           />
           <AvatarFallback class="rounded-lg text-xs">
@@ -102,7 +102,7 @@ export function NavUser(props: NavUserProps) {
       <DropdownMenuContent>
         <DropdownMenuItem
           as={A}
-          href="/account"
+          href="/dashboard/account"
           class="hover:cursor-pointer"
         >
           <UserCircle class="size-4" />

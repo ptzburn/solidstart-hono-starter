@@ -16,7 +16,14 @@ export function SessionProvider(props: {
 }) {
   return (
     <SessionContext.Provider
-      value={{ user: props.user, session: props.session }}
+      value={{
+        get user() {
+          return props.user;
+        },
+        get session() {
+          return props.session;
+        },
+      }}
     >
       {props.children}
     </SessionContext.Provider>
